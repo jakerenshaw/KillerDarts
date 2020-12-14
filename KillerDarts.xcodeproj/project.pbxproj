@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B60B62752587E5190069CFC2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B62742587E5190069CFC2 /* HeaderView.swift */; };
+		B60B62782587F8C20069CFC2 /* PlayersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */; };
+		B60B627D2587FCE90069CFC2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B627C2587FCE90069CFC2 /* Fonts.swift */; };
+		B62B8C2425876A400018F474 /* KillerDartsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62B8C2325876A400018F474 /* KillerDartsApp.swift */; };
+		B62B8C2625876A400018F474 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62B8C2525876A400018F474 /* ContentView.swift */; };
+		B62B8C2825876A410018F474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62B8C2725876A410018F474 /* Assets.xcassets */; };
+		B62B8C2B25876A410018F474 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62B8C2A25876A410018F474 /* Preview Assets.xcassets */; };
+		B6BC7FEC2587A74E00FDBE88 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC7FEB2587A74E00FDBE88 /* Player.swift */; };
+		B6BC7FF02587CE9D00FDBE88 /* PlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B60B62742587E5190069CFC2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersCoordinator.swift; sourceTree = "<group>"; };
+		B60B627C2587FCE90069CFC2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		B62B8C2025876A400018F474 /* KillerDarts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KillerDarts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B62B8C2325876A400018F474 /* KillerDartsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillerDartsApp.swift; sourceTree = "<group>"; };
+		B62B8C2525876A400018F474 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B62B8C2725876A410018F474 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B62B8C2A25876A410018F474 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B62B8C2C25876A410018F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B62B8C2D25876A410018F474 /* KillerDarts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KillerDarts.entitlements; sourceTree = "<group>"; };
+		B6BC7FEB2587A74E00FDBE88 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRowView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B62B8C1D25876A400018F474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B60B627A2587FCB80069CFC2 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		B60B627B2587FCDA0069CFC2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60B627C2587FCE90069CFC2 /* Fonts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B62B8C1725876A400018F474 = {
+			isa = PBXGroup;
+			children = (
+				B62B8C2225876A400018F474 /* KillerDarts */,
+				B62B8C2125876A400018F474 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B62B8C2125876A400018F474 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B62B8C2025876A400018F474 /* KillerDarts.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B62B8C2225876A400018F474 /* KillerDarts */ = {
+			isa = PBXGroup;
+			children = (
+				B60B627B2587FCDA0069CFC2 /* Extensions */,
+				B60B627A2587FCB80069CFC2 /* Coordinators */,
+				B6BC7FEE2587CE4A00FDBE88 /* Views */,
+				B6BC7FEA2587A73900FDBE88 /* Models */,
+				B62B8C2325876A400018F474 /* KillerDartsApp.swift */,
+				B62B8C2525876A400018F474 /* ContentView.swift */,
+				B62B8C2725876A410018F474 /* Assets.xcassets */,
+				B62B8C2C25876A410018F474 /* Info.plist */,
+				B62B8C2D25876A410018F474 /* KillerDarts.entitlements */,
+				B62B8C2925876A410018F474 /* Preview Content */,
+			);
+			path = KillerDarts;
+			sourceTree = "<group>";
+		};
+		B62B8C2925876A410018F474 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B62B8C2A25876A410018F474 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B6BC7FEA2587A73900FDBE88 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6BC7FEB2587A74E00FDBE88 /* Player.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6BC7FEE2587CE4A00FDBE88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */,
+				B60B62742587E5190069CFC2 /* HeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B62B8C1F25876A400018F474 /* KillerDarts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B62B8C3025876A410018F474 /* Build configuration list for PBXNativeTarget "KillerDarts" */;
+			buildPhases = (
+				B62B8C1C25876A400018F474 /* Sources */,
+				B62B8C1D25876A400018F474 /* Frameworks */,
+				B62B8C1E25876A400018F474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KillerDarts;
+			productName = KillerDarts;
+			productReference = B62B8C2025876A400018F474 /* KillerDarts.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B62B8C1825876A400018F474 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					B62B8C1F25876A400018F474 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = B62B8C1B25876A400018F474 /* Build configuration list for PBXProject "KillerDarts" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B62B8C1725876A400018F474;
+			productRefGroup = B62B8C2125876A400018F474 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B62B8C1F25876A400018F474 /* KillerDarts */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B62B8C1E25876A400018F474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B62B8C2B25876A410018F474 /* Preview Assets.xcassets in Resources */,
+				B62B8C2825876A410018F474 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B62B8C1C25876A400018F474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B60B627D2587FCE90069CFC2 /* Fonts.swift in Sources */,
+				B60B62752587E5190069CFC2 /* HeaderView.swift in Sources */,
+				B62B8C2625876A400018F474 /* ContentView.swift in Sources */,
+				B6BC7FEC2587A74E00FDBE88 /* Player.swift in Sources */,
+				B6BC7FF02587CE9D00FDBE88 /* PlayerRowView.swift in Sources */,
+				B62B8C2425876A400018F474 /* KillerDartsApp.swift in Sources */,
+				B60B62782587F8C20069CFC2 /* PlayersCoordinator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B62B8C2E25876A410018F474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B62B8C2F25876A410018F474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B62B8C3125876A410018F474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KillerDarts/KillerDarts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"KillerDarts/Preview Content\"";
+				DEVELOPMENT_TEAM = HYR5KL46R6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = KillerDarts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JakeRenshaw.KillerDarts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B62B8C3225876A410018F474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KillerDarts/KillerDarts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"KillerDarts/Preview Content\"";
+				DEVELOPMENT_TEAM = HYR5KL46R6;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = KillerDarts/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JakeRenshaw.KillerDarts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B62B8C1B25876A400018F474 /* Build configuration list for PBXProject "KillerDarts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B62B8C2E25876A410018F474 /* Debug */,
+				B62B8C2F25876A410018F474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B62B8C3025876A410018F474 /* Build configuration list for PBXNativeTarget "KillerDarts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B62B8C3125876A410018F474 /* Debug */,
+				B62B8C3225876A410018F474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B62B8C1825876A400018F474 /* Project object */;
+}
