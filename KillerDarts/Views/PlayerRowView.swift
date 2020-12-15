@@ -32,7 +32,11 @@ struct PlayerRowView: View {
                     self.updatePlayerLives()
                 }
             }
-        }.conditionalModifier((game.inProgress && playerStore.players[index].currentPlayer), BorderModifier())
+        }
+        .conditionalModifier(
+            game.inProgress,
+            BorderModifier(player: playerStore.players[index])
+        )
     }
     
     private func updatePlayerName() {
@@ -49,10 +53,15 @@ struct PlayerRowView: View {
 }
 
 struct BorderModifier: ViewModifier {
+
+    var player: Player
+    
     func body(content: Content) -> some View {
+        let width: CGFloat = player.currentPlayer ? 2 : 0
+        let borderColor = player.killer ? Color.red : Color.blue
         return content
             .padding()
-            .border(Color.red, width: 2)
+            .border(borderColor, width: width)
     }
 }
 

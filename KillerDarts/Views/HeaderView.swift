@@ -17,7 +17,8 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             Button(playButtonText) {
-                if !gameStore.game.inProgress {
+                if !gameStore.game.inProgress,
+                   !playerStore.players.isEmpty {
                     self.playButtonText = "Restart Game"
                     playerStore.highlightPlayer()
                     gameStore.startGame()
@@ -27,13 +28,15 @@ struct HeaderView: View {
                     gameStore.endGame()
                 }
             }.padding()
-            Spacer()
-            Button("Remove All Players") {
-                playerStore.removeAll()
-            }.padding()
-            Button("Add Players +") {
-                playerStore.addRow()
-            }.padding()
+            if !gameStore.game.inProgress {
+                Spacer()
+                Button("Remove All Players") {
+                    playerStore.removeAll()
+                }.padding()
+                Button("Add Players +") {
+                    playerStore.addRow()
+                }.padding()
+            }
         }
     }
     

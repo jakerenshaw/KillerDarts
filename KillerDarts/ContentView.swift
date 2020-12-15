@@ -27,9 +27,9 @@ struct ContentView: View {
                     )
                 }.onDelete{( playerStore.onDelete(offsets: $0) )}
             }
-//            if gameCoordinator.game.inProgress {
-//                CurrentGameView(currentPlayer: playersCoordinator.currentPlayer())
-//            }
+            if gameStore.game.inProgress {
+                CurrentGameView(currentPlayer: playerStore.currentPlayer())
+            }
         }
     }
 }

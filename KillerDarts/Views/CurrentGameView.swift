@@ -13,6 +13,7 @@ struct CurrentGameView: View {
     
     var body: some View {
         Text("\(currentPlayer.name)'s Turn")
+            .font(.playerRow)
     }
 }
 
