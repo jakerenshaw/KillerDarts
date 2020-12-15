@@ -8,26 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var coordinator: PlayersCoordinator
+    
+    @EnvironmentObject var gameStore: GameStore
+    @EnvironmentObject var playerStore: PlayerStore
     
     var body: some View {
         VStack {
-            HeaderView(coordinator: coordinator)
-            if coordinator.startGame {
-                // play game
-            } else {
-                List {
-                    ForEach(coordinator.players, id: \.self) { player in
-                        PlayerRowView(player: player)
-                    }.onDelete{( coordinator.onDelete(offsets: $0) )}
-                }
+            HeaderView(
+                gameStore: gameStore,
+                playerStore: playerStore
+            )
+            List {
+                ForEach(playerStore.players.indices, id: \.self) { indices in
+                    PlayerRowView(
+                        playerStore: playerStore,
+                        game: gameStore.game,
+                        index: indices
+                    )
+                }.onDelete{( playerStore.onDelete(offsets: $0) )}
             }
+//            if gameCoordinator.game.inProgress {
+//                CurrentGameView(currentPlayer: playersCoordinator.currentPlayer())
+//            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(coordinator: PlayersCoordinator())
+        ContentView()
     }
 }

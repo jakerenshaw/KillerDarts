@@ -8,19 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		B60B62752587E5190069CFC2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B62742587E5190069CFC2 /* HeaderView.swift */; };
-		B60B62782587F8C20069CFC2 /* PlayersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */; };
 		B60B627D2587FCE90069CFC2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B627C2587FCE90069CFC2 /* Fonts.swift */; };
 		B62B8C2425876A400018F474 /* KillerDartsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62B8C2325876A400018F474 /* KillerDartsApp.swift */; };
 		B62B8C2625876A400018F474 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62B8C2525876A400018F474 /* ContentView.swift */; };
 		B62B8C2825876A410018F474 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62B8C2725876A410018F474 /* Assets.xcassets */; };
 		B62B8C2B25876A410018F474 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62B8C2A25876A410018F474 /* Preview Assets.xcassets */; };
+		B6B6CC4C2588F436004C17B5 /* PlayerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6CC4B2588F436004C17B5 /* PlayerStore.swift */; };
+		B6B6CC4F2588F44B004C17B5 /* GameStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6CC4E2588F44B004C17B5 /* GameStore.swift */; };
 		B6BC7FEC2587A74E00FDBE88 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC7FEB2587A74E00FDBE88 /* Player.swift */; };
 		B6BC7FF02587CE9D00FDBE88 /* PlayerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */; };
+		B6CD647D2588B3990002A3C6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CD647C2588B3990002A3C6 /* Game.swift */; };
+		B6CD64832588C7920002A3C6 /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CD64822588C7920002A3C6 /* Views.swift */; };
+		B6CD64862588CA890002A3C6 /* CurrentGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CD64852588CA890002A3C6 /* CurrentGameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B60B62742587E5190069CFC2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersCoordinator.swift; sourceTree = "<group>"; };
 		B60B627C2587FCE90069CFC2 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B62B8C2025876A400018F474 /* KillerDarts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KillerDarts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62B8C2325876A400018F474 /* KillerDartsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillerDartsApp.swift; sourceTree = "<group>"; };
@@ -29,8 +32,13 @@
 		B62B8C2A25876A410018F474 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B62B8C2C25876A410018F474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B62B8C2D25876A410018F474 /* KillerDarts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KillerDarts.entitlements; sourceTree = "<group>"; };
+		B6B6CC4B2588F436004C17B5 /* PlayerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStore.swift; sourceTree = "<group>"; };
+		B6B6CC4E2588F44B004C17B5 /* GameStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStore.swift; sourceTree = "<group>"; };
 		B6BC7FEB2587A74E00FDBE88 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRowView.swift; sourceTree = "<group>"; };
+		B6CD647C2588B3990002A3C6 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B6CD64822588C7920002A3C6 /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		B6CD64852588CA890002A3C6 /* CurrentGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentGameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,18 +52,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B60B627A2587FCB80069CFC2 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				B60B62772587F8C20069CFC2 /* PlayersCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		B60B627B2587FCDA0069CFC2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B60B627C2587FCE90069CFC2 /* Fonts.swift */,
+				B6CD64822588C7920002A3C6 /* Views.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -79,8 +80,8 @@
 		B62B8C2225876A400018F474 /* KillerDarts */ = {
 			isa = PBXGroup;
 			children = (
+				B6B6CC4A2588F417004C17B5 /* Stores */,
 				B60B627B2587FCDA0069CFC2 /* Extensions */,
-				B60B627A2587FCB80069CFC2 /* Coordinators */,
 				B6BC7FEE2587CE4A00FDBE88 /* Views */,
 				B6BC7FEA2587A73900FDBE88 /* Models */,
 				B62B8C2325876A400018F474 /* KillerDartsApp.swift */,
@@ -101,10 +102,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		B6B6CC4A2588F417004C17B5 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				B6B6CC4B2588F436004C17B5 /* PlayerStore.swift */,
+				B6B6CC4E2588F44B004C17B5 /* GameStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
 		B6BC7FEA2587A73900FDBE88 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				B6BC7FEB2587A74E00FDBE88 /* Player.swift */,
+				B6CD647C2588B3990002A3C6 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			children = (
 				B6BC7FEF2587CE9D00FDBE88 /* PlayerRowView.swift */,
 				B60B62742587E5190069CFC2 /* HeaderView.swift */,
+				B6CD64852588CA890002A3C6 /* CurrentGameView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,10 +202,14 @@
 				B60B627D2587FCE90069CFC2 /* Fonts.swift in Sources */,
 				B60B62752587E5190069CFC2 /* HeaderView.swift in Sources */,
 				B62B8C2625876A400018F474 /* ContentView.swift in Sources */,
+				B6CD64862588CA890002A3C6 /* CurrentGameView.swift in Sources */,
+				B6B6CC4F2588F44B004C17B5 /* GameStore.swift in Sources */,
 				B6BC7FEC2587A74E00FDBE88 /* Player.swift in Sources */,
+				B6B6CC4C2588F436004C17B5 /* PlayerStore.swift in Sources */,
 				B6BC7FF02587CE9D00FDBE88 /* PlayerRowView.swift in Sources */,
 				B62B8C2425876A400018F474 /* KillerDartsApp.swift in Sources */,
-				B60B62782587F8C20069CFC2 /* PlayersCoordinator.swift in Sources */,
+				B6CD64832588C7920002A3C6 /* Views.swift in Sources */,
+				B6CD647D2588B3990002A3C6 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

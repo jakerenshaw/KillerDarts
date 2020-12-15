@@ -9,19 +9,30 @@ import SwiftUI
 
 struct HeaderView: View {
     
-    var coordinator: PlayersCoordinator
+    var gameStore: GameStore
+    var playerStore: PlayerStore
+    
+    @State var playButtonText = "Play"
     
     var body: some View {
         HStack {
-            Button("Play") {
-                coordinator.play()
+            Button(playButtonText) {
+                if !gameStore.game.inProgress {
+                    self.playButtonText = "Restart Game"
+                    playerStore.highlightPlayer()
+                    gameStore.startGame()
+                } else {
+                    self.playButtonText = "Play"
+                    playerStore.unhighlightPlayers()
+                    gameStore.endGame()
+                }
             }.padding()
             Spacer()
             Button("Remove All Players") {
-                coordinator.removeAll()
+                playerStore.removeAll()
             }.padding()
             Button("Add Players +") {
-                coordinator.addRow()
+                playerStore.addRow()
             }.padding()
         }
     }
@@ -30,6 +41,9 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(coordinator: PlayersCoordinator())
+        HeaderView(
+            gameStore: GameStore(),
+            playerStore: PlayerStore()
+        )
     }
 }

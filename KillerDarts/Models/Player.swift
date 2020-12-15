@@ -12,4 +12,6 @@ struct Player: Hashable, Identifiable {
     var name: String
     var number: Int?
     var lives: Int
+    var currentPlayer: Bool
+    var killer: Bool
 }

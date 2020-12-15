@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct KillerDartsApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView(coordinator: PlayersCoordinator())
+            ContentView()
+                .environmentObject(GameStore())
+                .environmentObject(PlayerStore())
         }
     }
 }
