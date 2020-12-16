@@ -9,33 +9,29 @@ import SwiftUI
 
 struct HeaderView: View {
     
-    var gameStore: GameStore
-    var playerStore: PlayerStore
-    
-    @State var playButtonText = "Play"
+    @EnvironmentObject var gameStore: GameStore
+    @EnvironmentObject var playerStore: PlayerStore
     
     var body: some View {
         HStack {
-            Button(playButtonText) {
-                if !gameStore.game.inProgress,
-                   !playerStore.players.isEmpty {
-                    self.playButtonText = "Restart Game"
-                    playerStore.highlightPlayer()
-                    gameStore.startGame()
-                } else {
-                    self.playButtonText = "Play"
-                    playerStore.unhighlightPlayers()
-                    gameStore.endGame()
-                }
-            }.padding()
+            PlayNowButtonView()
             if !gameStore.game.inProgress {
                 Spacer()
+                Button("Remove Last Player") {
+                    playerStore.removeLastPlayer()
+                }
+                .padding()
+                .keyboardShortcut("u", modifiers: .control)
                 Button("Remove All Players") {
                     playerStore.removeAll()
-                }.padding()
+                }
+                .padding()
+                .keyboardShortcut("r", modifiers: .control)
                 Button("Add Players +") {
-                    playerStore.addRow()
-                }.padding()
+                    playerStore.addPlayer()
+                }
+                .padding()
+                .keyboardShortcut("n", modifiers: .control)
             }
         }
     }
@@ -44,9 +40,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(
-            gameStore: GameStore(),
-            playerStore: PlayerStore()
-        )
+        HeaderView()
     }
 }

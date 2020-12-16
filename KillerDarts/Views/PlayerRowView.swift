@@ -9,29 +9,35 @@ import SwiftUI
 
 struct PlayerRowView: View {
     
-    var playerStore: PlayerStore
+    @EnvironmentObject var playerStore: PlayerStore
     var game: Game
     var index: Int
     
     @State private var playerName: String = ""
     @State private var killerNumber: Int = 0
-    @State private var lives: Int = 3
     
     var body: some View {
         HStack {
-            TextField("Player Name", text: $playerName, onCommit: updatePlayerName).font(.playerRow)
-            TextField("Killer Number", value: $killerNumber, formatter: NumberFormatter(), onCommit: updateKillerNumber).font(.playerRow)
-            HStack {
-                Text("Lives: \(lives)").font(.playerRow)
-                Button("+") {
-                    lives += 1
-                    self.updatePlayerLives()
-                }
-                Button("-") {
-                    lives -= 1
-                    self.updatePlayerLives()
-                }
-            }
+            TextField(
+                "Player Name",
+                text: $playerName,
+                onCommit: updatePlayerName
+            )
+            .font(.playerRow)
+            .disabled(game.inProgress)
+            TextField(
+                "Killer Number",
+                value: $killerNumber,
+                formatter: NumberFormatter(),
+                onCommit: updateKillerNumber
+            )
+            .font(.playerRow)
+            .disabled(game.inProgress)
+            KillerView(
+                lives: playerStore.players[index].lives,
+                game: game,
+                index: index
+            )
         }
         .conditionalModifier(
             game.inProgress,
@@ -40,15 +46,11 @@ struct PlayerRowView: View {
     }
     
     private func updatePlayerName() {
-        playerStore.players[index].name = $playerName.wrappedValue
+        playerStore.updatePlayerName(name: $playerName.wrappedValue, index: index)
     }
     
     private func updateKillerNumber() {
-        playerStore.players[index].number = $killerNumber.wrappedValue
-    }
-    
-    private func updatePlayerLives() {
-        playerStore.players[index].lives = $lives.wrappedValue
+        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, index: index)
     }
 }
 
@@ -68,7 +70,6 @@ struct BorderModifier: ViewModifier {
 struct PlayerRowView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerRowView(
-            playerStore: PlayerStore(),
             game: Game(
                 inProgress: false
             ),

@@ -10,7 +10,7 @@ import Foundation
 class PlayerStore: ObservableObject {
     @Published var players: [Player] = []
     
-    func addRow() {
+    func addPlayer() {
         self.players.append(
             Player(
                 name: "",
@@ -30,7 +30,13 @@ class PlayerStore: ObservableObject {
         self.players.removeAll()
     }
     
-    func highlightPlayer() {
+    func removeLastPlayer() {
+        if !players.isEmpty {
+            self.players.removeLast()
+        }
+    }
+    
+    func highlightFirstPlayer() {
         self.players[0].currentPlayer = true
     }
     
@@ -40,5 +46,21 @@ class PlayerStore: ObservableObject {
     
     func currentPlayer() -> Player {
         self.players.first(where: { $0.currentPlayer })!
+    }
+    
+    func updatePlayerName(name: String, index: Int) {
+        self.players[index].name = name
+    }
+    
+    func updateKillerNumber(number: Int, index: Int) {
+        self.players[index].number = number
+    }
+    
+    func updatePlayerLives(lives: Int, index: Int) {
+        self.players[index].lives = lives
+    }
+    
+    func togglePlayerKiller(index: Int) {
+        self.players[index].killer = (self.players[index].lives == 6)
     }
 }

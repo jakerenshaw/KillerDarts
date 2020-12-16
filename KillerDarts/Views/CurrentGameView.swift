@@ -12,8 +12,13 @@ struct CurrentGameView: View {
     var currentPlayer: Player
     
     var body: some View {
-        Text("\(currentPlayer.name)'s Turn")
-            .font(.playerRow)
+        HStack {
+            Text("\(currentPlayer.name)'s Turn")
+                .font(.playerRow)
+            Button("Next Player") {
+                //highlight next player
+            }
+        }
     }
 }
 

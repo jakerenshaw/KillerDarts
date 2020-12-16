@@ -14,14 +14,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            HeaderView(
-                gameStore: gameStore,
-                playerStore: playerStore
-            )
+            HeaderView()
             List {
                 ForEach(playerStore.players.indices, id: \.self) { indices in
                     PlayerRowView(
-                        playerStore: playerStore,
                         game: gameStore.game,
                         index: indices
                     )
