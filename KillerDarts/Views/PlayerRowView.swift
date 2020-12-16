@@ -10,8 +10,9 @@ import SwiftUI
 struct PlayerRowView: View {
     
     @EnvironmentObject var playerStore: PlayerStore
+    
     var game: Game
-    var index: Int
+    var player: Player
     
     @State private var playerName: String = ""
     @State private var killerNumber: Int = 0
@@ -35,31 +36,32 @@ struct PlayerRowView: View {
             .disabled(game.inProgress)
             KillerView(
                 game: game,
-                index: index
+                player: player
             )
         }
         .conditionalModifier(
             game.inProgress,
-            BorderModifier(player: playerStore.players[index])
+            BorderModifier(currentPlayer: player.currentPlayer, killer: player.killer)
         )
     }
     
     private func updatePlayerName() {
-        playerStore.updatePlayerName(name: $playerName.wrappedValue, index: index)
+        playerStore.updatePlayerName(name: $playerName.wrappedValue, player: player)
     }
     
     private func updateKillerNumber() {
-        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, index: index)
+        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, player: player)
     }
 }
 
 struct BorderModifier: ViewModifier {
 
-    var player: Player
+    var currentPlayer: Bool
+    var killer: Bool
     
     func body(content: Content) -> some View {
-        let width: CGFloat = player.currentPlayer ? 2 : 0
-        let borderColor = player.killer ? Color.red : Color.blue
+        let width: CGFloat = currentPlayer ? 2 : 0
+        let borderColor = killer ? Color.red : Color.blue
         return content
             .padding()
             .border(borderColor, width: width)
@@ -72,7 +74,12 @@ struct PlayerRowView_Previews: PreviewProvider {
             game: Game(
                 inProgress: false
             ),
-            index: 0
+            player: Player(
+                name: "",
+                number: nil,
+                lives: 3,
+                currentPlayer: false
+            )
         )
     }
 }

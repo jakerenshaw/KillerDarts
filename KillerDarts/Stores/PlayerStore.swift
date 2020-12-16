@@ -35,17 +35,19 @@ class PlayerStore: ObservableObject {
         }
     }
     
-    func highlightPlayer(index: Int) {
+    func highlightPlayer(player: Player) {
         self.unhighlightPlayers()
-        self.players[index].currentPlayer = true
+        if let index = self.players.firstIndex(of: player) {
+            self.players[index].currentPlayer = true
+        }
     }
     
     func highlightNextPlayer() {
         if let nextIndex = self.players.firstIndex(of: self.currentPlayer()),
            self.players.indices.contains(nextIndex + 1) {
-            self.highlightPlayer(index: nextIndex + 1)
+            self.highlightPlayer(player: self.players[nextIndex + 1])
         } else {
-            self.highlightPlayer(index: 0)
+            self.highlightPlayer(player: self.players[0])
         }
     }
     
@@ -54,18 +56,24 @@ class PlayerStore: ObservableObject {
     }
     
     func currentPlayer() -> Player {
-        self.players.first(where: { $0.currentPlayer })!
+        self.players.first(where: { $0.currentPlayer }) ?? self.players.first!
     }
     
-    func updatePlayerName(name: String, index: Int) {
-        self.players[index].name = name
+    func updatePlayerName(name: String, player: Player) {
+        if let index = self.players.firstIndex(of: player) {
+            self.players[index].name = name
+        }
     }
     
-    func updateKillerNumber(number: Int, index: Int) {
-        self.players[index].number = number
+    func updateKillerNumber(number: Int, player: Player) {
+        if let index = self.players.firstIndex(of: player) {
+            self.players[index].number = number
+        }
     }
     
-    func updatePlayerLives(lives: Int, index: Int) {
-        self.players[index].lives = lives
+    func updatePlayerLives(lives: Int, player: Player) {
+        if let index = self.players.firstIndex(of: player) {
+            self.players[index].lives = lives
+        }
     }
 }

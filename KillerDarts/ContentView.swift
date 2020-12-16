@@ -19,7 +19,7 @@ struct ContentView: View {
                 ForEach(playerStore.players.indices, id: \.self) { indices in
                     PlayerRowView(
                         game: gameStore.game,
-                        index: indices
+                        player: playerStore.players[indices]
                     )
                 }.onDelete{( playerStore.onDelete(offsets: $0) )}
             }

@@ -12,14 +12,14 @@ struct KillerView: View {
     @EnvironmentObject var playerStore: PlayerStore
     
     var game: Game
-    var index: Int
+    var player: Player
     
     private var killerText: String {
         if !game.inProgress {
-            return "Lives: \(playerStore.players[index].lives)"
+            return "Lives: \(player.lives)"
         } else {
             let text = "Killer"
-            let textIndex = text.index(text.startIndex, offsetBy: playerStore.players[index].lives)
+            let textIndex = text.index(text.startIndex, offsetBy: player.lives)
             return "\(text[..<textIndex])"
         }
     }
@@ -29,14 +29,14 @@ struct KillerView: View {
             Text(killerText)
                 .font(.playerRow)
             Button("+") {
-                playerStore.updatePlayerLives(lives: playerStore.players[index].lives + 1, index: index)
+                playerStore.updatePlayerLives(lives: player.lives + 1, player: player)
             }
-            .disabled(!(playerStore.players[index].lives < 6))
+            .disabled(!(player.lives < 6))
             .keyboardShortcut(.upArrow, modifiers: .command)
             Button("-") {
-                playerStore.updatePlayerLives(lives: playerStore.players[index].lives - 1, index: index)
+                playerStore.updatePlayerLives(lives: player.lives - 1, player: player)
             }
-            .disabled(!(playerStore.players[index].lives > 0))
+            .disabled(!(player.lives > 0))
             .keyboardShortcut(.downArrow, modifiers: .command)
         }
     }
@@ -48,7 +48,12 @@ struct KillerView_Previews: PreviewProvider {
             game: Game(
                 inProgress: false
             ),
-            index: 0
+            player: Player(
+                name: "",
+                number: nil,
+                lives: 3,
+                currentPlayer: false
+            )
         )
     }
 }
