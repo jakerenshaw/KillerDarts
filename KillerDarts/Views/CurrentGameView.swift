@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CurrentGameView: View {
     
-    var currentPlayer: Player
+    @EnvironmentObject var playerStore: PlayerStore
     
     var body: some View {
         HStack {
-            Text("\(currentPlayer.name)'s Turn")
+            Text("\(playerStore.currentPlayer().name)'s Turn")
                 .font(.playerRow)
             Button("Next Player") {
-                //highlight next player
+                playerStore.highlightNextPlayer()
             }
         }
     }
@@ -24,13 +24,6 @@ struct CurrentGameView: View {
 
 struct CurrentGameView_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentGameView(
-            currentPlayer: Player(
-                name: "",
-                number: nil,
-                lives: 3,
-                currentPlayer: false
-            )
-        )
+        CurrentGameView()
     }
 }

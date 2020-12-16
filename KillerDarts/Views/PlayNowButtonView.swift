@@ -18,7 +18,7 @@ struct PlayNowButtonView: View {
             if !gameStore.game.inProgress,
                !playerStore.players.isEmpty {
                 self.playButtonText = "Restart Game"
-                playerStore.highlightFirstPlayer()
+                playerStore.highlightPlayer(index: 0)
                 gameStore.startGame()
             } else {
                 self.playButtonText = "Play"

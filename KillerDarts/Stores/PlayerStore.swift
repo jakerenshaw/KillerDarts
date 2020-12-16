@@ -35,8 +35,18 @@ class PlayerStore: ObservableObject {
         }
     }
     
-    func highlightFirstPlayer() {
-        self.players[0].currentPlayer = true
+    func highlightPlayer(index: Int) {
+        self.unhighlightPlayers()
+        self.players[index].currentPlayer = true
+    }
+    
+    func highlightNextPlayer() {
+        if let nextIndex = self.players.firstIndex(of: self.currentPlayer()),
+           self.players.indices.contains(nextIndex + 1) {
+            self.highlightPlayer(index: nextIndex + 1)
+        } else {
+            self.highlightPlayer(index: 0)
+        }
     }
     
     func unhighlightPlayers() {
