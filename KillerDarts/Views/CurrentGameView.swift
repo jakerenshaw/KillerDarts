@@ -15,10 +15,13 @@ struct CurrentGameView: View {
         HStack {
             Text("\(playerStore.currentPlayer().name)'s Turn")
                 .font(.playerRow)
+            Spacer()
             Button("Next Player") {
                 playerStore.highlightNextPlayer()
             }
         }
+        .padding()
+        .padding()
     }
 }
 
