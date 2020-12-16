@@ -16,8 +16,7 @@ class PlayerStore: ObservableObject {
                 name: "",
                 number: nil,
                 lives: 3,
-                currentPlayer: false,
-                killer: false
+                currentPlayer: false
             )
         )
     }
@@ -58,9 +57,5 @@ class PlayerStore: ObservableObject {
     
     func updatePlayerLives(lives: Int, index: Int) {
         self.players[index].lives = lives
-    }
-    
-    func togglePlayerKiller(index: Int) {
-        self.players[index].killer = (self.players[index].lives == 6)
     }
 }

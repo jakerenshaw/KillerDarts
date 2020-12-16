@@ -34,7 +34,6 @@ struct PlayerRowView: View {
             .font(.playerRow)
             .disabled(game.inProgress)
             KillerView(
-                lives: playerStore.players[index].lives,
                 game: game,
                 index: index
             )

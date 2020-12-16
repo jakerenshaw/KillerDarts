@@ -29,8 +29,7 @@ struct CurrentGameView_Previews: PreviewProvider {
                 name: "",
                 number: nil,
                 lives: 3,
-                currentPlayer: false,
-                killer: false
+                currentPlayer: false
             )
         )
     }

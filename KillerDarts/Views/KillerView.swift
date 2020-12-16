@@ -9,16 +9,17 @@ import SwiftUI
 
 struct KillerView: View {
     
-    @State var lives: Int
     @EnvironmentObject var playerStore: PlayerStore
+    
     var game: Game
     var index: Int
-    var killerText: String {
+    
+    private var killerText: String {
         if !game.inProgress {
-            return "Lives: \(lives)"
+            return "Lives: \(playerStore.players[index].lives)"
         } else {
             let text = "Killer"
-            let textIndex = text.index(text.startIndex, offsetBy: lives)
+            let textIndex = text.index(text.startIndex, offsetBy: playerStore.players[index].lives)
             return "\(text[..<textIndex])"
         }
     }
@@ -28,30 +29,22 @@ struct KillerView: View {
             Text(killerText)
                 .font(.playerRow)
             Button("+") {
-                lives += 1
-                self.updatePlayerLives()
+                playerStore.updatePlayerLives(lives: playerStore.players[index].lives + 1, index: index)
             }
-            .disabled(!(lives < 6))
+            .disabled(!(playerStore.players[index].lives < 6))
             .keyboardShortcut(.upArrow, modifiers: .command)
             Button("-") {
-                lives -= 1
-                self.updatePlayerLives()
+                playerStore.updatePlayerLives(lives: playerStore.players[index].lives - 1, index: index)
             }
-            .disabled(!(lives > 0))
+            .disabled(!(playerStore.players[index].lives > 0))
             .keyboardShortcut(.downArrow, modifiers: .command)
         }
-    }
-    
-    private func updatePlayerLives() {
-        playerStore.updatePlayerLives(lives: $lives.wrappedValue, index: index)
-        playerStore.togglePlayerKiller(index: index)
     }
 }
 
 struct KillerView_Previews: PreviewProvider {
     static var previews: some View {
         KillerView(
-            lives: 3,
             game: Game(
                 inProgress: false
             ),

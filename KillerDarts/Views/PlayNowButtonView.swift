@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayNowButtonView: View {
     
-    @State var playButtonText = "Play"
+    @State private var playButtonText = "Play"
     @EnvironmentObject var gameStore: GameStore
     @EnvironmentObject var playerStore: PlayerStore
     
