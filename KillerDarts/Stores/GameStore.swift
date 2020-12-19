@@ -8,13 +8,13 @@
 import Foundation
 
 final class GameStore: ObservableObject {
-    @Published var game = Game(inProgress: false)
+    @Published var game = Game(state: .PreGame)
     
     func startGame() {
-        self.game.inProgress = true
+        self.game.state = .InProgress
     }
     
     func endGame() {
-        self.game.inProgress = false
+        self.game.state = .PreGame
     }
 }

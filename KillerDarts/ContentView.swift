@@ -23,7 +23,7 @@ struct ContentView: View {
                     )
                 }.onDelete{( playerStore.onDelete(offsets: $0) )}
             }
-            if gameStore.game.inProgress {
+            if gameStore.game.state == .InProgress {
                 CurrentGameView()
             }
         }

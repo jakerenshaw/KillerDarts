@@ -16,4 +16,8 @@ struct Player: Hashable, Identifiable {
     var killer: Bool {
         self.lives == 6
     }
+    var elimated: Bool {
+        self.lives == 0
+    }
+    var winner: Bool
 }

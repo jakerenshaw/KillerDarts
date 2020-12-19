@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum GameState {
+    case PreGame
+    case InProgress
+}
+
 struct Game {
-    var inProgress: Bool
+    var state: GameState
 }

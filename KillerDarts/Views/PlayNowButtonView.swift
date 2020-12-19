@@ -15,10 +15,10 @@ struct PlayNowButtonView: View {
     
     var body: some View {
         Button(playButtonText) {
-            if !gameStore.game.inProgress,
+            if gameStore.game.state != GameState.InProgress,
                !playerStore.players.isEmpty {
                 self.playButtonText = "Restart Game"
-                playerStore.highlightPlayer(player: self.playerStore.players[0])
+                self.playerStore.resetPlayersToDefault()
                 gameStore.startGame()
             } else {
                 self.playButtonText = "Play"
@@ -27,7 +27,7 @@ struct PlayNowButtonView: View {
             }
         }
         .padding()
-        .keyboardShortcut("p", modifiers: .control)
+        .keyboardShortcut("p", modifiers: [])
     }
 }
 

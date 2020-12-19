@@ -15,23 +15,23 @@ struct HeaderView: View {
     var body: some View {
         HStack {
             PlayNowButtonView()
-            if !gameStore.game.inProgress {
+            if gameStore.game.state != .InProgress {
                 Spacer()
                 Button("Remove Last Player") {
                     playerStore.removeLastPlayer()
                 }
                 .padding()
-                .keyboardShortcut("u", modifiers: .control)
+                .keyboardShortcut("u", modifiers: [])
                 Button("Remove All Players") {
                     playerStore.removeAll()
                 }
                 .padding()
-                .keyboardShortcut("r", modifiers: .control)
+                .keyboardShortcut("r", modifiers: [])
                 Button("Add Players +") {
                     playerStore.addPlayer()
                 }
                 .padding()
-                .keyboardShortcut("n", modifiers: .control)
+                .keyboardShortcut("n", modifiers: [])
             }
         }
     }

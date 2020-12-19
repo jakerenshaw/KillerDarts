@@ -13,11 +13,21 @@ struct CurrentGameView: View {
     
     var body: some View {
         HStack {
-            Text("\(playerStore.currentPlayer().name)'s Turn")
-                .font(.playerRow)
-            Spacer()
-            Button("Next Player") {
-                playerStore.highlightNextPlayer()
+            if self.playerStore.currentPlayer().winner {
+                Text("\(playerStore.currentPlayer().name) Wins")
+                    .font(.playerRow)
+            } else {
+                Text("\(playerStore.currentPlayer().name)'s Turn")
+                    .font(.playerRow)
+                Spacer()
+                Button("Next Player") {
+                    if let nextPlayer = self.playerStore.nextPlayer() {
+                        self.playerStore.highlightPlayer(player: nextPlayer)
+                    } else {
+                        self.playerStore.setWinner(player: self.playerStore.currentPlayer())
+                    }
+                }
+                .keyboardShortcut(.return, modifiers: [])
             }
         }
         .padding()

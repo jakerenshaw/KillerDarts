@@ -25,7 +25,7 @@ struct PlayerRowView: View {
                 onCommit: updatePlayerName
             )
             .font(.playerRow)
-            .disabled(game.inProgress)
+            .disabled(game.state == .InProgress)
             TextField(
                 "Killer Number",
                 value: $killerNumber,
@@ -33,15 +33,19 @@ struct PlayerRowView: View {
                 onCommit: updateKillerNumber
             )
             .font(.playerRow)
-            .disabled(game.inProgress)
+            .disabled(game.state == .InProgress)
             KillerView(
                 game: game,
                 player: player
             )
         }
         .conditionalModifier(
-            game.inProgress,
+            game.state == .InProgress,
             BorderModifier(currentPlayer: player.currentPlayer, killer: player.killer)
+        )
+        .conditionalModifier(
+            (game.state == .InProgress && player.elimated),
+            VisibilityModifier()
         )
     }
     
@@ -68,17 +72,26 @@ struct BorderModifier: ViewModifier {
     }
 }
 
+struct VisibilityModifier: ViewModifier {
+    
+    func body(content: Content) -> some View {
+        return content
+            .hidden()
+    }
+}
+
 struct PlayerRowView_Previews: PreviewProvider {
     static var previews: some View {
         PlayerRowView(
             game: Game(
-                inProgress: false
+                state: .PreGame
             ),
             player: Player(
                 name: "",
                 number: nil,
                 lives: 3,
-                currentPlayer: false
+                currentPlayer: false,
+                winner: false
             )
         )
     }

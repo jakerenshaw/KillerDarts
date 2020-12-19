@@ -15,7 +15,7 @@ struct KillerView: View {
     var player: Player
     
     private var killerText: String {
-        if !game.inProgress {
+        if game.state != .InProgress {
             return "Lives: \(player.lives)"
         } else {
             let text = "Killer"
@@ -32,12 +32,10 @@ struct KillerView: View {
                 playerStore.updatePlayerLives(lives: player.lives + 1, player: player)
             }
             .disabled(!(player.lives < 6))
-            .keyboardShortcut(.upArrow, modifiers: .command)
             Button("-") {
                 playerStore.updatePlayerLives(lives: player.lives - 1, player: player)
             }
             .disabled(!(player.lives > 0))
-            .keyboardShortcut(.downArrow, modifiers: .command)
         }
     }
 }
@@ -46,13 +44,14 @@ struct KillerView_Previews: PreviewProvider {
     static var previews: some View {
         KillerView(
             game: Game(
-                inProgress: false
+                state: .PreGame
             ),
             player: Player(
                 name: "",
                 number: nil,
                 lives: 3,
-                currentPlayer: false
+                currentPlayer: false,
+                winner: false
             )
         )
     }

@@ -16,7 +16,8 @@ class PlayerStore: ObservableObject {
                 name: "",
                 number: nil,
                 lives: 3,
-                currentPlayer: false
+                currentPlayer: false,
+                winner: false
             )
         )
     }
@@ -42,13 +43,24 @@ class PlayerStore: ObservableObject {
         }
     }
     
-    func highlightNextPlayer() {
-        if let nextIndex = self.players.firstIndex(of: self.currentPlayer()),
-           self.players.indices.contains(nextIndex + 1) {
-            self.highlightPlayer(player: self.players[nextIndex + 1])
-        } else {
-            self.highlightPlayer(player: self.players[0])
+    func nextPlayer() -> Player? {
+        var player: Player? = nil
+        if let playerAfter = self.players.first(
+            where: {
+                (!$0.currentPlayer && !$0.elimated) &&
+                    (self.players.firstIndex(of: $0)! > self.players.firstIndex(of: self.currentPlayer())!)
+            }
+        ) {
+            player = playerAfter
+        } else if let previousPlayer = self.players.first(
+            where: {
+                (!$0.currentPlayer && !$0.elimated) &&
+                    (self.players.firstIndex(of: $0)! < self.players.firstIndex(of: self.currentPlayer())!)
+            }
+        ) {
+            player = previousPlayer
         }
+        return player
     }
     
     func unhighlightPlayers() {
@@ -75,5 +87,15 @@ class PlayerStore: ObservableObject {
         if let index = self.players.firstIndex(of: player) {
             self.players[index].lives = lives
         }
+    }
+    
+    func setWinner(player: Player) {
+        if let index = self.players.firstIndex(of: player) {
+            self.players[index].winner = true
+        }
+    }
+    
+    func resetPlayersToDefault() {
+        self.highlightPlayer(player: self.players[0])
     }
 }
