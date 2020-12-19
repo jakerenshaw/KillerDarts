@@ -14,10 +14,12 @@ struct HeaderView: View {
     
     var body: some View {
         HStack {
+            ShortcutButtonView()
+            Spacer()
             PlayNowButtonView()
             if gameStore.game.state != .InProgress {
                 Spacer()
-                Button("Remove Last Player") {
+                Button("Undo Last Player") {
                     playerStore.removeLastPlayer()
                 }
                 .padding()
@@ -27,7 +29,7 @@ struct HeaderView: View {
                 }
                 .padding()
                 .keyboardShortcut("r", modifiers: [])
-                Button("Add Players +") {
+                Button("New Player") {
                     playerStore.addPlayer()
                 }
                 .padding()
