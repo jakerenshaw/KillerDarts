@@ -16,7 +16,7 @@ struct PlayNowButtonView: View {
     var body: some View {
         Button(playButtonText) {
             if gameStore.game.state != GameState.InProgress,
-               !playerStore.players.isEmpty {
+               playerStore.players.count > 1 {
                 self.playButtonText = "Restart Game"
                 self.playerStore.resetPlayersToDefault()
                 gameStore.startGame()
