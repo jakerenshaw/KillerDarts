@@ -21,7 +21,9 @@ struct ContentView: View {
                         game: gameStore.game,
                         player: playerStore.players[indices]
                     )
-                }.onDelete{( playerStore.onDelete(offsets: $0) )}
+                }
+                .onDelete{( playerStore.onDelete(offsets: $0) )}
+                .deleteDisabled(gameStore.game.state == .InProgress)
             }
             if gameStore.game.state == .InProgress {
                 CurrentGameView()
