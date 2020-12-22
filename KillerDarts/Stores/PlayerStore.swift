@@ -13,11 +13,13 @@ class PlayerStore: ObservableObject {
     func addPlayer() {
         self.players.append(
             Player(
+                id: UUID().uuidString,
                 name: "",
                 number: nil,
                 lives: 3,
                 currentPlayer: false,
-                winner: false
+                winner: false,
+                wins: 0
             )
         )
     }
@@ -77,7 +79,7 @@ class PlayerStore: ObservableObject {
         }
     }
     
-    func updateKillerNumber(number: Int, player: Player) {
+    func updateKillerNumber(number: Int?, player: Player) {
         if let index = self.players.firstIndex(of: player) {
             self.players[index].number = number
         }
@@ -92,10 +94,24 @@ class PlayerStore: ObservableObject {
     func setWinner(player: Player) {
         if let index = self.players.firstIndex(of: player) {
             self.players[index].winner = true
+            self.players[index].wins += 1
         }
     }
     
     func resetPlayersToDefault() {
         self.highlightPlayer(player: self.players[0])
+    }
+    
+    func loadPlayers(loadedPlayers: [Player]) {
+        self.players = loadedPlayers
+    }
+    
+    func rankings() -> String {
+        var text = ""
+        let leaderboard = self.players.sorted(by: { $0.wins > $1.wins })
+        leaderboard.indices.forEach({
+            text.append("\($0 + 1) - \(leaderboard[$0].name) - wins: \(leaderboard[$0].wins)\n")
+        })
+        return text
     }
 }

@@ -12,25 +12,23 @@ struct PlayerRowView: View {
     @EnvironmentObject var playerStore: PlayerStore
     
     var game: Game
+    var index: Int
     var player: Player
     
-    @State private var playerName: String = ""
-    @State private var killerNumber: Int = 0
+    let emptyPlayer = Player(id: "", name: "", number: nil, lives: 3, currentPlayer: false, winner: false, wins: 0)
     
     var body: some View {
         HStack {
             TextField(
                 "Player Name",
-                text: $playerName,
-                onCommit: updatePlayerName
+                text: $playerStore.players[index, default: self.emptyPlayer].name
             )
             .font(.playerRow)
             .disabled(game.state == .InProgress)
             TextField(
                 "Killer Number",
-                value: $killerNumber,
-                formatter: NumberFormatter(),
-                onCommit: updateKillerNumber
+                value: $playerStore.players[index, default: self.emptyPlayer].number,
+                formatter: NumberFormatter()
             )
             .font(.playerRow)
             .disabled(game.state == .InProgress)
@@ -49,12 +47,40 @@ struct PlayerRowView: View {
         )
     }
     
-    private func updatePlayerName() {
-        playerStore.updatePlayerName(name: $playerName.wrappedValue, player: player)
-    }
-    
-    private func updateKillerNumber() {
-        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, player: player)
+//    private func updatePlayerName() {
+//        playerStore.updatePlayerName(name: $playerName.wrappedValue, player: player)
+//    }
+//
+//    private func updateKillerNumber() {
+//        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, player: player)
+//    }
+}
+
+extension Binding where
+    Value: MutableCollection,
+    Value: RangeReplaceableCollection
+{
+    subscript(
+        _ index: Value.Index,
+        default defaultValue: Value.Element
+    ) -> Binding<Value.Element> {
+        Binding<Value.Element> {
+            guard index < self.wrappedValue.endIndex else {
+                return defaultValue
+            }
+            return self.wrappedValue[index]
+        } set: { newValue in
+            
+            // It is possible that the index we are updating
+            // is beyond the end of our array so we first
+            // need to append items to the array to ensure
+            // we are within range.
+            while index >= self.wrappedValue.endIndex {
+                self.wrappedValue.append(defaultValue)
+            }
+            
+            self.wrappedValue[index] = newValue
+        }
     }
 }
 
@@ -77,22 +103,5 @@ struct VisibilityModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
             .hidden()
-    }
-}
-
-struct PlayerRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerRowView(
-            game: Game(
-                state: .PreGame
-            ),
-            player: Player(
-                name: "",
-                number: nil,
-                lives: 3,
-                currentPlayer: false,
-                winner: false
-            )
-        )
     }
 }

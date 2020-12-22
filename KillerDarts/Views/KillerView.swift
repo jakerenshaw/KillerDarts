@@ -47,11 +47,13 @@ struct KillerView_Previews: PreviewProvider {
                 state: .PreGame
             ),
             player: Player(
+                id: UUID().uuidString,
                 name: "",
-                number: nil,
+                number: 0,
                 lives: 3,
                 currentPlayer: false,
-                winner: false
+                winner: false,
+                wins: 0
             )
         )
     }

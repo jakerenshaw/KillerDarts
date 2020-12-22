@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Player: Hashable, Identifiable {
-    let id = UUID().uuidString
+struct Player: Hashable, Identifiable, Codable {
+    var id: String
     var name: String
     var number: Int?
     var lives: Int
@@ -20,4 +20,5 @@ struct Player: Hashable, Identifiable {
         self.lives == 0
     }
     var winner: Bool
+    var wins: Int
 }

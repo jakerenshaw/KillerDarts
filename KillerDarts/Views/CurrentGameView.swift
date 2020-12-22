@@ -10,12 +10,16 @@ import SwiftUI
 struct CurrentGameView: View {
     
     @EnvironmentObject var playerStore: PlayerStore
+    @EnvironmentObject var gameData: GameData
     
     var body: some View {
         HStack {
             if self.playerStore.currentPlayer().winner {
                 Text("\(playerStore.currentPlayer().name) Wins")
                     .font(.playerRow)
+                .onAppear {
+                    self.gameData.saveData()
+                }
             } else {
                 Text("\(playerStore.currentPlayer().name)'s Turn")
                     .font(.playerRow)

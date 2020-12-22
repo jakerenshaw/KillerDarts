@@ -19,10 +19,10 @@ struct ContentView: View {
                 ForEach(playerStore.players.indices, id: \.self) { indices in
                     PlayerRowView(
                         game: gameStore.game,
-                        player: playerStore.players[indices]
+                        index: indices,
+                        player: self.playerStore.players[indices]
                     )
                 }
-                .onDelete{( playerStore.onDelete(offsets: $0) )}
                 .deleteDisabled(gameStore.game.state == .InProgress)
             }
             if gameStore.game.state == .InProgress {

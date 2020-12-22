@@ -12,9 +12,11 @@ struct KillerDartsApp: App {
     
     var body: some Scene {
         WindowGroup {
+            let playerStore = PlayerStore()
             ContentView()
                 .environmentObject(GameStore())
-                .environmentObject(PlayerStore())
+                .environmentObject(playerStore)
+                .environmentObject(GameData(playerStore: playerStore))
         }
     }
 }
