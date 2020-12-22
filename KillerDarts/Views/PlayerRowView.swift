@@ -46,14 +46,6 @@ struct PlayerRowView: View {
             VisibilityModifier()
         )
     }
-    
-//    private func updatePlayerName() {
-//        playerStore.updatePlayerName(name: $playerName.wrappedValue, player: player)
-//    }
-//
-//    private func updateKillerNumber() {
-//        playerStore.updateKillerNumber(number: $killerNumber.wrappedValue, player: player)
-//    }
 }
 
 extension Binding where
